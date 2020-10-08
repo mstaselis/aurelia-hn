@@ -1,24 +1,15 @@
 # use latest version of nodejs
-FROM node:lts-alpine
-
-# install aurelia-cli to build the app & http-server to serve static contents
-RUN npm i -g http-server
-RUN npm i -g aurelia-cli
+FROM node:alpine AS builder
 
 # set working directory to app
 # henceforth all commands will run inside this folder
 WORKDIR /app
 
-# copy package.json related files first and install all required dependencies
-COPY package*.json ./
-RUN npm install
-
 # copy the rest of the files and folders & install dependencies
 COPY . ./
-RUN npm run build
+RUN npm install && npm install aurelia-cli -g && au build --env prod
 
-# by default http-server will serve contents on port 8080
-# so we expose this port to host machine
-EXPOSE 8080
+FROM nginx:alpine
 
-CMD [ "http-server" , "dist" ]
+COPY --from=builder /app/scripts/* /usr/share/nginx/html/scripts/
+COPY --from=builder /app/index.html /usr/share/nginx/html/
