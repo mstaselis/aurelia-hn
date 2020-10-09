@@ -1,0 +1,19 @@
+<template>
+  <article class="post">
+    <a target="_blank" rel="noopener noreferrer"  href="">
+      <h4>Shell</h4>
+    </a>
+    <div class="media">
+      <div class="media-content">
+        <div class="content">
+          <slot name="hn-article-author"></slot>
+        </div>
+      </div>
+      <div class="media-right">
+        <span class="has-text-grey-light">
+          <slot name="hn-article-comment-count"></slot>
+        </span>
+      </div>
+    </div>
+  </article>
+</template>
