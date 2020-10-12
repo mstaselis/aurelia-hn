@@ -2,11 +2,6 @@
   <require from="./hn-article"></require>
 
   <div class="box content">
-    <hn-article repeat.for="article of articles">
-      <p slot="hn-article-author">
-        <a href="#">${article.by}</a>
-      </p>
-      <div slot="hn-article-comment-count">${article.commentCount}</div>
-    </hn-article>
+    <hn-article repeat.for="article of articles" article.bind="article"></hn-article>
   </div>
 </template>

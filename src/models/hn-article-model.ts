@@ -13,7 +13,7 @@ export class HnArticleLModel {
 
   public time: number;
 
-  public title: string;
+  public title: string; 
 
   public type: HnArticleType;
 

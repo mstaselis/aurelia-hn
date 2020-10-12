@@ -1,17 +1,22 @@
 <template>
+  <require from="../converters/hn-hostname"></require>
+
   <article class="post">
-    <a target="_blank" rel="noopener noreferrer"  href="">
-      <h4>Shell</h4>
+    <a target="_blank" rel="noopener noreferrer" href="${article.url}">
+      <h4>${article.title}</h4>
     </a>
+    <p>${article.url | hostname}</p>
     <div class="media">
       <div class="media-content">
-        <div class="content">
-          <slot name="hn-article-author"></slot>
+        <div class="content">          
+          <p>
+            <a href="#">${article.by}</a>
+          </p>
         </div>
       </div>
       <div class="media-right">
         <span class="has-text-grey-light">
-          <slot name="hn-article-comment-count"></slot>
+          <div>${article.commentCount}</div>
         </span>
       </div>
     </div>
