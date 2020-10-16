@@ -1,7 +1,5 @@
 <template>
   <require from="./hn-article"></require>
 
-  <div class="box content">
-    <hn-article repeat.for="article of articles" article.bind="article"></hn-article>
-  </div>
+  <hn-article repeat.for="article of articles" article.bind="article"></hn-article>
 </template>
