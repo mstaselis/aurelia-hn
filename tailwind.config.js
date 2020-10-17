@@ -1,14 +1,8 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-    // defaultLineHeights: true,
-    // standardFontWeights: true
-  },
-  purge: [],
-  theme: {
-    extend: {}
-  },
-  variants: {},
-  plugins: []
+  purge: {    
+    mode: 'layers',
+    layers: ['base', 'components', 'utilities'],
+    content: ['./src/**/*.html'],
+    enabled: true
+  }   
 }
