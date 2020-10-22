@@ -7,6 +7,6 @@ export class ApiService {
     dummyModel.url = 'http://google.com';
     dummyModel.title = 'Title';
    
-    return [dummyModel];
+    return [dummyModel, dummyModel];
   }
 }
